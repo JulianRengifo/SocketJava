@@ -13,9 +13,12 @@ public class Server extends Connection {
 	
 	public void onServer () {
 		
-		System.out.println("Server running.....");
+		System.out.println("Server> Running.....");
 		
 		try {
+			
+			System.out.println("Serever> Waiting...");
+			
 		s = ss.accept();
 		System.out.println("Client online.....");
 		
@@ -25,17 +28,21 @@ public class Server extends Connection {
 		BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		
 		while((message = input.readLine())!= null){
-			System.out.println(message);
+			System.out.println("Client>"+message);
 		}
 		
 		System.out.println("Clien offline.....");
 		
+		while(i+1+ "\n") {
+			
+		}
+		
 		ss.close();
 		
-		System.out.println("Server stop.....");
+		System.out.println("Server> Stop.....");
 		
 	}catch (IOException e) {
-		System.out.println(e.getMessage());
+		System.out.println("Server>"+e.getMessage());
 	
 	}
 	}
