@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-public class Connection {
+public class Connection  {
 
 	private final int PORT = 8090;
 	private final String HOST = "localhost";

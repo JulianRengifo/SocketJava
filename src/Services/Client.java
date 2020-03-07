@@ -2,7 +2,7 @@ package Services;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
-
+import java.net.Socket;
 import java.io.IOException;
 
 public class Client extends Connection{
@@ -24,6 +24,7 @@ public class Client extends Connection{
 		outputServer.writeUTF(client +">Mensaje numero"+ (i+1)+ "\n");
 		}
 		System.out.println(client+">Data Sent...");
+		
 		
 		s.close();
 		

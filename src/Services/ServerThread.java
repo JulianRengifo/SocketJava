@@ -1,33 +1,24 @@
 package Services;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server extends Connection  {
-
-	public Server() throws IOException {
-		super("server");
-		// TODO Auto-generated constructor stub
-	}
+public class ServerThread extends Thread {
 	
-	public void onServer () {
+	private String message;
+	private Socket s;
+
+	@Override
+	public void run() {
 		
-		System.out.println("Server> Running.....");
-		
-		try {
-			
-			System.out.println("Serever> Waiting...");
+try {
+	
 			
 			while (true) {
 			
-		s = ss.accept();
-		System.out.println("Client online.....");
-		
-		outputClient = new DataOutputStream(s.getOutputStream());
-		outputClient.writeUTF("Petition Recived");
 		
 		BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		
@@ -46,5 +37,10 @@ public class Server extends Connection  {
 		System.out.println("Server>"+e.getMessage());
 	
 	}
+	
+		
+		// TODO Auto-generated method stub
+		super.run();
 	}
+
 }
