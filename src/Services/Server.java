@@ -13,18 +13,19 @@ public class Server extends Connection  {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void onServer () {
+	public void onServer () throws ClassNotFoundException, IOException {
 		
 		System.out.println("Server> Running.....");
 		
 		try {
 			
-			System.out.println("Serever> Waiting...");
 			
 			while (true) {
+				
+				System.out.println("Serever> Waiting...");
 			
 		s = ss.accept();
-		System.out.println("Client online.....");
+		System.out.println("Server> Client online.....");
 		
 		outputClient = new DataOutputStream(s.getOutputStream());
 		outputClient.writeUTF("Petition Recived");

@@ -10,37 +10,43 @@ public class ServerThread extends Thread {
 	
 	private String message;
 	private Socket s;
+	private int idClient;
+	
+	
+	public ServerThread(Socket s, int idClient) {
+		
+		this.s = s;
+		this.idClient = idClient;
+	}
 
 	@Override
 	public void run() {
 		
 try {
 	
+	BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
+	
+	int suma = 0;
+	if(idClient ==3) {
+		for(int i=0; i<10000000; i++) {
+			suma ++;
+		}
+	}
 			
-			while (true) {
-			
-		
-		BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
 		
 		while((message = input.readLine())!= null){
 			System.out.println("Client>"+message);
 		
-		
-		System.out.println("Clien offline.....");
 		}
 		
-		System.out.println("Server> Stop.....");
-		
-			}
+		s.close();
 		
 	}catch (IOException e) {
 		System.out.println("Server>"+e.getMessage());
 	
 	}
 	
-		
-		// TODO Auto-generated method stub
-		super.run();
 	}
 
 }
+
